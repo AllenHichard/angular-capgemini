@@ -1,0 +1,26 @@
+<h2>Cadastradas Contas</h2>
+<hr>
+<form>
+    <!--<p>id : <input type="number" name="id" [(ngModel)]="conta.id"></p>-->
+    <p>Saldo : <input type="number" name="saldo" [(ngModel)]="conta.saldo"></p>
+    <button type="button" (click)="cadastrar()">Cadastrar</button>
+</form>
+
+
+<h2>Contas Cadastradas!</h2>
+<hr>
+<tr>
+    <th>id</th>
+    <th>Saldo</th>
+    <th>Ações</th>
+</tr>
+
+<table *ngFor= "let conta of contas">
+    
+    <tr>
+        <td>{{conta.id}}</td>
+        <td>{{conta.saldo}}</td>
+        <td><button (click)= "atualizar(conta.id)">Atualizar</button></td>
+        <td><button (click)= "remover(conta.id)">Remover</button></td>
+    </tr>
+</table>

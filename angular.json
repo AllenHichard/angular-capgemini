@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-capgemini"
+    }
+  },
+  "defaultProject": "angular-capgemini",
+  "cli": {
+    "analytics": "8220cf92-9fc0-4044-9f28-3090f47a7e00"
+  }
 }
