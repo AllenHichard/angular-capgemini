@@ -7,12 +7,14 @@ import {HttpClientModule} from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContasComponent } from './contas/contas.component';
-import { ContasService } from "./contas.service"
+import { ContasService } from "./contas.service";
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContasComponent
+    ContasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
