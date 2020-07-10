@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http"
 import { Observable } from 'rxjs';
 import { ContaModel } from './contas/conta.model';
 
-import {environment} from "./../environments/environment"
+//import {environment} from "./../environments/environment"
 
 
 @Injectable({
@@ -15,16 +15,16 @@ export class ContasService {
   }
 
   cadastrarConta(conta: ContaModel): Observable<any>{
-    return this.http.post(environment.apiUrl.concat("/conta"), conta);
+    return this.http.post("https://apirest-capgemini.herokuapp.com/api/conta", conta);
   }
 
   listarContas() : Observable<any>{
-    return this.http.get(environment.apiUrl.concat("/contas"));
+    return this.http.get("https://apirest-capgemini.herokuapp.com/api/contas");
   }
 
   atualizarConta(id: any, conta: ContaModel  ) : Observable<any>{
     //return this.http.put("https://apirest-capgemini.herokuapp.com/api/conta".concat(id), conta);
-    return this.http.put(environment.apiUrl.concat("/conta"), conta);
+    return this.http.put("https://apirest-capgemini.herokuapp.com/api/conta", conta);
   }
 
   removerConta(id: any, conta: ContaModel) : Observable<any>{
@@ -39,7 +39,7 @@ export class ContasService {
       },
     };
     console.log("chegou")
-    return this.http.delete(environment.apiUrl.concat("/conta"), options);
+    return this.http.delete("https://apirest-capgemini.herokuapp.com/api/conta", options);
   }
 
 
