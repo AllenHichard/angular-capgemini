@@ -10,7 +10,7 @@
           </p>
         <p id="msg"></p>
       </div>
-      <h1>Saldo Atual : {{conta.saldo}}</h1>
+      <h1>Saldo Atual : R$: {{conta.saldo}}</h1>
       <div id="newContact">
         <p>Digite um valor e escolha a operação </p>
         <input type="number" id="nome" maxlength="20" placeholder="R$: XXX"  [(ngModel)]="movimentacao.valor" required/>
@@ -28,7 +28,7 @@
         <ul id='todosDados' *ngFor="let m of operacoes">
           <div id="titulo">
             <li class="titulo">{{m.operacao}}</li>
-            <li class="titulo" *ngIf="m.valor != -1">{{m.valor}}</li>
+            <li class="titulo" *ngIf="m.valor != -1">R$: {{m.valor}}</li>
             <li class="titulo" *ngIf="m.valor == -1">Conferir Saldo</li>
           </div>
         </ul>
