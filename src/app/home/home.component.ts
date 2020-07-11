@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.conta = this.dataService.getConta();
+    //console.log(this.movimentacao.valor)
     if(this.conta == null){
      // console.log("Carrege Perfil");
       this.paginaLogin()

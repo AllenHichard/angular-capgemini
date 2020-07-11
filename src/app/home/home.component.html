@@ -26,9 +26,9 @@
            </div>
         </ul>
         <ul id='todosDados' *ngFor="let m of operacoes">
-          <div id="titulo">
+          <div *ngIf="m.valor !== undefined" id="titulo">
             <li style="width: 150px"class="titulo">{{m.operacao}}</li>
-            <li class="titulo" *ngIf="m.valor != -1">R$: {{m.valor}}</li>
+            <li class="titulo" *ngIf="m.valor !== undefined && m.valor != -1"><text>R$: </text>{{m.valor}}</li>
             <li class="titulo" *ngIf="m.valor == -1">Conferir Saldo</li>
           </div>
         </ul>
