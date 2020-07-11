@@ -15,10 +15,10 @@ export class ContasComponent implements OnInit {
   constructor(private contasService: ContasService) { }
 
   ngOnInit(): void {
-    this.listarContas();
+    //this.listarContas();
   }
 
-
+  /*
   atualizar(id: number){
     this.conta.id = id
     this.contasService.atualizarConta(id, this.conta).subscribe(
@@ -63,6 +63,6 @@ export class ContasComponent implements OnInit {
         console.log("Erro ao listar as contas", err);
       }
     )
-  }
+  }*/
 
 }

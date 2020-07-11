@@ -1,4 +1,9 @@
 export class ContaModel{
-    id: number;
-    saldo: number;
+    cpf = "";
+    pNome = "";
+    uNome = "";
+    email =  "";
+    senha = "";
+    saldo = ""
+    movimentacao = "";
 }

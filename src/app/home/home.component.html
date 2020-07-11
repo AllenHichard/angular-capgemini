@@ -1,1 +1,44 @@
-<p>home works!</p>
+<!--     
+-->
+<router-outlet></router-outlet>
+    <div id="container">
+      <div id="header"> 
+        <h1>Sua Movimentação Bancária - {{conta.pNome}} </h1>
+        <p>O sistema é uma demonstração simples de duas operações bancárias envolvendo: Deposito e Saque 
+          <br />
+            <a href="https://apirest-capgemini.herokuapp.com/swagger-ui.html" target="_blank">Acessar a API pública implementada utilizando o swagger-ui</a>
+          </p>
+        <p id="msg"></p>
+      </div>
+      <h1>Saldo Atual : {{conta.saldo}}</h1>
+      <div id="newContact">
+        <p>Digite um valor e escolha a operação </p>
+        <input type="number" id="nome" maxlength="20" placeholder="R$: XXX"  [(ngModel)]="movimentacao.valor" required/>
+        <input type="button"  class="cadastrar" value="Depositar" (click)="depositar(movimentacao.valor)"/>
+        <input type="button"  class="cadastrar" value="Sacar" (click)="sacar(movimentacao.valor)"/>
+      </div>
+      <div id="list"> 
+        <p>Histórico de Operações</p>
+        <ul id='todosDados'>
+          <div id="titulo">
+            <li class="titulo">Operação</li>
+            <li class="titulo">Valor</li>
+           </div>
+        </ul>
+        <ul id='todosDados' *ngFor="let m of operacoes">
+          <div id="titulo">
+            <li class="titulo">{{m.operacao}}</li>
+            <li class="titulo" *ngIf="m.valor != -1">{{m.valor}}</li>
+            <li class="titulo" *ngIf="m.valor == -1">Conferir Saldo</li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    
+  <!--<tbody *ngFor="let m of operacoes">
+            <thead>
+              <tr>
+                <td>{{m.operacao}}</td>
+                <td>{{m.valor}}</td>
+              </tr>
+          </thead>-->
