@@ -21,13 +21,13 @@
         <p>Histórico de Operações</p>
         <ul id='todosDados'>
           <div id="titulo">
-            <li class="titulo">Operação</li>
+            <li style="width: 150px" class="titulo">Operação</li>
             <li class="titulo">Valor</li>
            </div>
         </ul>
         <ul id='todosDados' *ngFor="let m of operacoes">
           <div id="titulo">
-            <li class="titulo">{{m.operacao}}</li>
+            <li style="width: 150px"class="titulo">{{m.operacao}}</li>
             <li class="titulo" *ngIf="m.valor != -1">R$: {{m.valor}}</li>
             <li class="titulo" *ngIf="m.valor == -1">Conferir Saldo</li>
           </div>
