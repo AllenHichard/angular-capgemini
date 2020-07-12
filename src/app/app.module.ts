@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +28,8 @@ import { HomeComponent } from './home/home.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule  
   ],
   providers: [ContasService, HttpClientModule, RegistroService, LoginService, DataService, HomeService],
   bootstrap: [AppComponent]

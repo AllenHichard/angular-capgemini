@@ -1,32 +1,56 @@
 <script>
-    angular.module('ngRequiredExample', [])
-      .controller('ExampleController', ['$scope', function($scope) {
-        $scope.required = true;
-      }]);
-  </script>
+  angular.module('ngRequiredExample', [])
+    .controller('ExampleController', ['$scope', function ($scope) {
+      $scope.required = true;
+    }]);
+</script>
 
 
 <div class="container">
-    <div class="login">
-       <div class="container">
-            <h1>Realize Seu Cadastro</h1>
-            <form ngNativeValidate>
-                <input type="text" placeholder="Nome" name="nome" [(ngModel)]="conta.pNome" required>
-                <input type="text" placeholder="Último Nome" name="ultimo" [(ngModel)]="conta.uNome" required>
-                <input type="text" placeholder="CPF simbólico" name="cpf" [(ngModel)]="conta.cpf" required>
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="conta.email" required>
-                <input type="password" placeholder="Password" name="senha" [(ngModel)]="conta.senha" required><br>
-                <button routerLink="" type="button" (click)="cadastrar()" >Cadastre-se</button>
-            </form>
-            <hr><p>Ou conecte com</p><hr>
-            <ul>
-                <li><i class="fab fa-facebook-f fa-2x"></i></li>
-                <li><i class="fab fa-twitter fa-2x"></i></li>
-                <li><i class="fab fa-github fa-2x"></i></li>
-                <li><i class="fab fa-linkedin-in fa-2x"></i></li>
-            </ul>
-            <div class="clearfix"></div>
-            <span class="copyright">&copy;2020</span>  
-       </div>
-    </div> 
+  <div class="login">
+    <div class="container">
+      <h1>Realize Seu Cadastro</h1> 
+      <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+        <input type="text" placeholder="Primeiro Nome" formControlName="pNome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇ]+" required>
+        <input type="text" placeholder="Último Nome" formControlName="uNome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇ]+" required>
+        <input type="text" placeholder="CPF simbólico" formControlName="cpf" pattern="[0-9]+" required>
+        <input type="email" placeholder="Email" formControlName="email" required>
+        <input type="password" placeholder="Password" formControlName="senha" required><br>
+
+        <div *ngIf="!pNome.valid" >
+          Primeiro Nome Inválido
+        </div>
+        <div *ngIf="!uNome.valid" >
+          último Nome Inválido
+        </div>
+        <div *ngIf="!cpf.valid" >
+          CPF Inválido
+        </div>
+        <div *ngIf="!email.valid" >
+          Email Inválido
+        </div>
+        <div *ngIf="!senha.valid" >
+          Senha Inválido
+        </div>
+        <div *ngIf="formulario.valid">
+          <button routerLink="" type="button" (click)="cadastrar()">Cadastre-se</button>
+        </div>
+        <div *ngIf="!formulario.valid">
+          <button routerLink="">Voltar</button>
+        </div>
+       
+      </form>
+      <hr>
+      <p>Ou conecte com</p>
+      <hr>
+      <ul>
+        <li><i class="fab fa-facebook-f fa-2x"></i></li>
+        <li><i class="fab fa-twitter fa-2x"></i></li>
+        <li><i class="fab fa-github fa-2x"></i></li>
+        <li><i class="fab fa-linkedin-in fa-2x"></i></li>
+      </ul>
+      <div class="clearfix"></div>
+      <span class="copyright">&copy;2020</span>
+    </div>
   </div>
+</div>

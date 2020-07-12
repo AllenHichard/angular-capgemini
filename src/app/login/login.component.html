@@ -1,13 +1,26 @@
 <div class="container">
   <div class="login">
      <div class="container">
-          <h1>Acesse a Aplicação</h1>
-          <input type="text" placeholder="CPF" [(ngModel)]="conta.cpf" required>
-          <input type="password" placeholder="Senha" [(ngModel)]="conta.senha"><br>
-          <!--<input type="checkbox"><span>Remember me</span>-->
-          <!--<a href="#">Forgot password?</a>-->
-          <button (click)="login()" >Conectar</button>
-           
+          <h1>Acesse a Aplicação</h1>  
+          <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <input  formControlName = "cpf" type="text" placeholder="CPF" pattern="[0-9]+" required>
+            <input formControlName = "senha" type="password" placeholder="Senha"><br>
+            <div *ngIf="!cpf.valid" >
+                CPF Inválido
+              </div> 
+            <div *ngIf="!senha.valid" >
+                Senha Inválido
+              </div>
+            <!--<input type="checkbox"><span>Remember me</span>-->
+            <!--<a href="#">Forgot password?</a>-->
+            
+            <button type="submit" >Conectar</button>
+
+            <div *ngIf="visible && !usuarioAutenticado" >
+                Usuário Inexistente
+              </div> 
+
+          </form>
           <hr><p>Ou conecte com</p><hr>
           <ul>
               <li><i class="fab fa-facebook-f fa-2x"></i></li>
